@@ -1,0 +1,17 @@
+Czy najlepszy model to taki, który popełnia
+najmniejszy błąd na danych, z użyciem których estymowano
+jego parametry?
+
+Myślę, że można łatwo zauważyć, że nie. Zwiększając liczbę parametrów zmniejszamy sumę błędu na danych, ale
+mając nieperfekcyjne dane treningowych, wśród których jest losowość, szum i nieregularność, możliwe jest
+wystąpienie zjawiska o nazwie "overfitting", czyli zbytniego dopasowania funkcji do danych treningowych, 
+przez co zatraca się możliwość modelu do generalizacji i dopasowania do niewidzianych przez niego danych. 
+Praktyczne testy:
+Dla M >= 7, testowany przeze mnie model bardzo mocno dopasowuje się do danych i zatraca generalność,
+osiągając wysokie ekstremum tuż przed szybkim zejściem w dół by przystosować się do najbardziej odstającej od
+reszty danej, znajdującej się daleko na prawo na osi X od reszty danych. Zwiększając M, zjawisko to się tylko 
+pogłębia. Zwiększa się też złożoność obliczeniowa modelu.
+Mając tylko ułamek danych, praktycznie nie da się dopasować funkcji idealnie do nich tak, by model pasował
+również do niewidzianych przez siebie danych. Ciężko taki model też jednoznacznie ocenić w takim wypadku. 
+Wydaje mi się, że dla M w okolicach wartości równej 4 funkcja najlepiej dopasowałaby się do pełnych danych - 
+aczkolwiek bez dostępu do nich, mogę się mylić.
